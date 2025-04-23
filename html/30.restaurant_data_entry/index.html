@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Data Entry Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .form-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Restaurant Data Entry Form</h1>
+        <form id="restaurantForm">
+            <table>
+                <tr>
+                    <th colspan="2">Restaurant Information</th>
+                </tr>
+                <tr>
+                    <td width="30%"><label for="name">Restaurant Name:</label></td>
+                    <td>
+                        <input type="text" id="name" required>
+                        <span id="nameError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="cuisine">Cuisine Type:</label></td>
+                    <td>
+                        <select id="cuisine" required>
+                            <option value="">Select Cuisine</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Mexican">Mexican</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Indian">Indian</option>
+                            <option value="American">American</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span id="cuisineError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="rating">Rating (1-5):</label></td>
+                    <td>
+                        <input type="number" id="rating" min="1" max="5" required>
+                        <span id="ratingError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="address">Address:</label></td>
+                    <td>
+                        <input type="text" id="address" required>
+                        <span id="addressError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Phone Number:</label></td>
+                    <td>
+                        <input type="tel" id="phone" required>
+                        <span id="phoneError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="openingHours">Opening Hours:</label></td>
+                    <td>
+                        <input type="text" id="openingHours" placeholder="e.g., 9:00 AM - 10:00 PM" required>
+                        <span id="hoursError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="website">Website:</label></td>
+                    <td>
+                        <input type="url" id="website">
+                        <span id="websiteError" class="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="description">Description:</label></td>
+                    <td>
+                        <textarea id="description" rows="3" style="width: 100%;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Facilities:</label></td>
+                    <td>
+                        <input type="checkbox" id="wifi" name="facilities" value="WiFi">
+                        <label for="wifi">WiFi</label>
+                        <input type="checkbox" id="parking" name="facilities" value="Parking">
+                        <label for="parking">Parking</label>
+                        <input type="checkbox" id="delivery" name="facilities" value="Delivery">
+                        <label for="delivery">Delivery</label>
+                        <input type="checkbox" id="outdoor" name="facilities" value="Outdoor Seating">
+                        <label for="outdoor">Outdoor Seating</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="button" id="submitBtn">Submit</button>
+                        <button type="reset" id="resetBtn">Reset</button>
+                        <button type="button" id="showDataBtn">Show Data</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div id="output" style="width: 80%; margin: 20px auto;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

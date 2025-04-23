@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .hobbies input {
+      margin-right: 8px;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background: #28a745;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .output {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      max-width: 500px;
+      margin: 30px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form id="registrationForm">
+    <label>First Name: <span class="error" id="fnameErr"></span></label>
+    <input type="text" id="fname" name="fname" required />
+
+    <label>Last Name: <span class="error" id="lnameErr"></span></label>
+    <input type="text" id="lname" name="lname" required />
+
+    <label>Organization: <span class="error" id="orgErr"></span></label>
+    <input type="text" id="org" name="org" required />
+
+    <label>Hobbies:</label>
+    <div class="hobbies">
+      <input type="checkbox" name="hobby" value="Reading" /> Reading
+      <input type="checkbox" name="hobby" value="Gaming" /> Gaming
+      <input type="checkbox" name="hobby" value="Traveling" /> Traveling
+      <input type="checkbox" name="hobby" value="Sports" /> Sports
+    </div>
+
+    <button type="submit" class="btn">Register</button>
+  </form>
+
+  <div class="output" id="output" style="display:none;"></div>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Clear previous errors
+      document.getElementById('fnameErr').textContent = '';
+      document.getElementById('lnameErr').textContent = '';
+      document.getElementById('orgErr').textContent = '';
+
+      // Get form values
+      const fname = document.getElementById('fname').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      const org = document.getElementById('org').value.trim();
+      const hobbies = Array.from(document.querySelectorAll('input[name="hobby"]:checked')).map(cb => cb.value);
+
+      let valid = true;
+
+      if (fname === '') {
+        document.getElementById('fnameErr').textContent = 'Required';
+        valid = false;
+      }
+      if (lname === '') {
+        document.getElementById('lnameErr').textContent = 'Required';
+        valid = false;
+      }
+      if (org === '') {
+        document.getElementById('orgErr').textContent = 'Required';
+        valid = false;
+      }
+
+      if (valid) {
+        output.style.display = 'block';
+        output.innerHTML = `
+          <h3>Registration Details:</h3>
+          <p><strong>First Name:</strong> ${fname}</p>
+          <p><strong>Last Name:</strong> ${lname}</p>
+          <p><strong>Organization:</strong> ${org}</p>
+          <p><strong>Hobbies:</strong> ${hobbies.length ? hobbies.join(', ') : 'None'}</p>
+        `;
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="students.xsd">
+    <student id="S001">
+        <name>
+            <firstName>John</firstName>
+            <lastName>Smith</lastName>
+        </name>
+        <age>21</age>
+        <email>john.smith@example.com</email>
+        <phone>123-456-7890</phone>
+        <courses>
+            <course code="CS101">
+                <title>Introduction to Programming</title>
+                <credits>3</credits>
+                <grade>A</grade>
+            </course>
+            <course code="CS202">
+                <title>Data Structures</title>
+                <credits>4</credits>
+                <grade>B+</grade>
+            </course>
+            <course code="MATH101">
+                <title>Calculus I</title>
+                <credits>4</credits>
+                <grade>A-</grade>
+            </course>
+        </courses>
+        <address>
+            <street>123 College Ave</street>
+            <city>University City</city>
+            <state>CA</state>
+            <zip>90001</zip>
+            <country>USA</country>
+        </address>
+    </student>
+    <student id="S002">
+        <name>
+            <firstName>Emily</firstName>
+            <lastName>Johnson</lastName>
+        </name>
+        <age>20</age>
+        <email>emily.johnson@example.com</email>
+        <phone>987-654-3210</phone>
+        <courses>
+            <course code="BIO101">
+                <title>Introduction to Biology</title>
+                <credits>4</credits>
+                <grade>A</grade>
+            </course>
+            <course code="CHEM101">
+                <title>General Chemistry</title>
+                <credits>4</credits>
+                <grade>B</grade>
+            </course>
+        </courses>
+        <address>
+            <street>456 University Blvd</street>
+            <city>College Town</city>
+            <state>NY</state>
+            <zip>10001</zip>
+            <country>USA</country>
+        </address>
+    </student>
+</students>

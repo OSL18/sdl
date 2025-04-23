@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Handler Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #colorBox {
+      width: 200px;
+      height: 200px;
+      background-color: #3498db;
+      border-radius: 10px;
+      border: 4px solid transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="colorBox"></div>
+
+  <script>
+    const box = document.getElementById('colorBox');
+
+    function handleMouseEnter() {
+      box.style.backgroundColor = '#2ecc71'; // green
+    }
+
+    function handleMouseLeave() {
+      box.style.backgroundColor = '#3498db'; // blue
+      box.style.border = '4px solid transparent';
+    }
+
+    function handleClick() {
+      box.style.backgroundColor = '#e74c3c'; // red
+    }
+
+    function handleDoubleClick() {
+      box.style.border = '4px dashed #8e44ad'; // purple border
+    }
+
+    // Attach handlers
+    box.addEventListener('mouseenter', handleMouseEnter);
+    box.addEventListener('mouseleave', handleMouseLeave);
+    box.addEventListener('click', handleClick);
+    box.addEventListener('dblclick', handleDoubleClick);
+  </script>
+
+</body>
+</html>

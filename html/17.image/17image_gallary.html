@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .gallery-item {
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Image Gallery</h1>
+        
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG5hdHVyZSUyMHZpZXd8ZW58MHx8MHx8fDA%3D" alt="Nature">
+                    <div class="p-3">
+                        <h5>Nature View</h5>
+                        <p>Beautiful landscape photography</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2l0eSUyMHNreWxpbmV8ZW58MHx8MHx8fDA%3D" alt="City">
+                    <div class="p-3">
+                        <h5>City Skyline</h5>
+                        <p>Urban architecture photography</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1549480017-d76466a4b7e8?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHdpbGRsaWZlfGVufDB8fDB8fHww" alt="Animals">
+                    <div class="p-3">
+                        <h5>Wildlife</h5>
+                        <p>Amazing animal photography</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1605461682195-9fd4d079a41d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Q3Vpc2luZSUyMERlbGljaW91cyUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHx8MA%3D%3D" alt="Food">
+                    <div class="p-3">
+                        <h5>Cuisine</h5>
+                        <p>Delicious food photography</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1554623515-3b2f224b92f2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8VHJhdmVsJTIwRXhvdGljJTIwbG9jYXRpb25zJTIwZnJvbSUyMGFyb3VuZCUyMHRoZSUyMHdvcmxkfGVufDB8fDB8fHww" alt="Travel">
+                    <div class="p-3">
+                        <h5>Travel</h5>
+                        <p>Exotic locations from around the world</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1547992454-1ee84f192799?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8U3BvcnRzJTIwQWN0aW9uJTIwcGFja2VkJTIwc3BvcnRpbmclMjBtb21lbnRzfGVufDB8fDB8fHww" alt="Sports">
+                    <div class="p-3">
+                        <h5>Sports</h5>
+                        <p>Action-packed sporting moments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

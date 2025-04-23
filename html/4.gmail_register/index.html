@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gmail Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f1f1f1;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: -12px;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #4285F4;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #357ae8;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="registrationForm">
+    <h2>Create your Gmail Account</h2>
+    
+    <label>First Name</label>
+    <input type="text" id="firstName" />
+    <div class="error" id="firstNameError"></div>
+    
+    <label>Last Name</label>
+    <input type="text" id="lastName" />
+    <div class="error" id="lastNameError"></div>
+    
+    <label>Username</label>
+    <input type="text" id="username" />
+    <div class="error" id="usernameError"></div>
+    
+    <label>Password</label>
+    <input type="password" id="password" />
+    <div class="error" id="passwordError"></div>
+    
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword" />
+    <div class="error" id="confirmPasswordError"></div>
+    
+    <label>Phone Number</label>
+    <input type="text" id="phone" />
+    <div class="error" id="phoneError"></div>
+    
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form from submitting
+      
+      // Clear previous errors
+      document.querySelectorAll('.error').forEach(el => el.textContent = '');
+      
+      // Get values
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const phone = document.getElementById('phone').value.trim();
+
+      let isValid = true;
+
+      // Validation
+      if (firstName === '') {
+        document.getElementById('firstNameError').textContent = 'First name is required.';
+        isValid = false;
+      }
+
+      if (lastName === '') {
+        document.getElementById('lastNameError').textContent = 'Last name is required.';
+        isValid = false;
+      }
+
+      if (username === '' || !/^[a-zA-Z0-9._]{5,}$/.test(username)) {
+        document.getElementById('usernameError').textContent = 'Enter a valid username (min 5 chars, no spaces).';
+        isValid = false;
+      }
+
+      if (password.length < 6) {
+        document.getElementById('passwordError').textContent = 'Password must be at least 6 characters.';
+        isValid = false;
+      }
+
+      if (confirmPassword !== password) {
+        document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+        isValid = false;
+      }
+
+      if (!/^\d{10}$/.test(phone)) {
+        document.getElementById('phoneError').textContent = 'Enter a valid 10-digit phone number.';
+        isValid = false;
+      }
+
+      if (isValid) {
+        alert('Registration successful!');
+        // You can now send data to server using AJAX or form.submit()
+        // this.submit(); // Uncomment if you want the form to actually submit
+      }
+    });
+  </script>
+
+</body>
+</html>

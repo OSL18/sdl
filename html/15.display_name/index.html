@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up & Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f0f0f0;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      max-width: 300px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #5cb85c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .message {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="signupForm">
+    <h2>Sign Up</h2>
+    <input type="text" id="signupUsername" placeholder="Username" required />
+    <input type="password" id="signupPassword" placeholder="Password" required />
+    <button onclick="signUp()">Sign Up</button>
+  </div>
+
+  <div class="container hidden" id="loginForm">
+    <h2>Login</h2>
+    <input type="text" id="loginUsername" placeholder="Username" required />
+    <input type="password" id="loginPassword" placeholder="Password" required />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div class="container hidden" id="welcomeScreen">
+    <h2>Welcome!</h2>
+    <div class="message" id="welcomeMessage"></div>
+  </div>
+
+  <script>
+    let storedUsername = "";
+    let storedPassword = "";
+
+    function signUp() {
+      const username = document.getElementById("signupUsername").value.trim();
+      const password = document.getElementById("signupPassword").value;
+
+      if (!username || !password) {
+        alert("Please fill in both fields!");
+        return;
+      }
+
+      storedUsername = username;
+      storedPassword = password;
+
+      document.getElementById("signupForm").classList.add("hidden");
+      document.getElementById("loginForm").classList.remove("hidden");
+      alert("Sign up successful! Please log in.");
+    }
+
+    function login() {
+      const username = document.getElementById("loginUsername").value.trim();
+      const password = document.getElementById("loginPassword").value;
+
+      if (username === storedUsername && password === storedPassword) {
+        document.getElementById("loginForm").classList.add("hidden");
+        document.getElementById("welcomeScreen").classList.remove("hidden");
+        document.getElementById("welcomeMessage").innerText = `Hello, ${username}!`;
+      } else {
+        alert("Invalid username or password.");
+      }
+    }
+  </script>
+</body>
+</html>

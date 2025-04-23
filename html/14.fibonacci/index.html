@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fibonacci Series</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2>Fibonacci Series Generator</h2>
+  <label for="count">Enter number of terms:</label>
+  <input type="number" id="count" min="1" />
+  <button onclick="generateFibonacci()">Generate</button>
+
+  <div id="result"></div>
+
+  <script>
+    function generateFibonacci() {
+      const count = parseInt(document.getElementById("count").value);
+      const resultDiv = document.getElementById("result");
+
+      if (isNaN(count) || count < 1) {
+        resultDiv.innerHTML = "Please enter a valid number greater than 0.";
+        return;
+      }
+
+      let fib = [0, 1];
+
+      for (let i = 2; i < count; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+      }
+
+      resultDiv.innerHTML = `Fibonacci Series (${count} terms): <br>` + fib.slice(0, count).join(", ");
+    }
+  </script>
+</body>
+</html>

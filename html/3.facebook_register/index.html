@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Facebook Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e9ebee;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .container {
+      background-color: white;
+      padding: 20px 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+    h2 {
+      text-align: center;
+      color: #1877f2;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    button {
+      width: 100%;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Create an account</h2>
+  <form id="registrationForm" onsubmit="return validateForm()">
+    
+    <div class="form-group">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" onblur="validateName()" />
+      <span class="error" id="nameError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" id="email" onblur="validateEmail()" />
+      <span class="error" id="emailError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" onblur="validatePassword()" />
+      <span class="error" id="passwordError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" onblur="validateConfirmPassword()" />
+      <span class="error" id="confirmPasswordError"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" onblur="validateDOB()" />
+      <span class="error" id="dobError"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Gender:</label>
+      <input type="radio" name="gender" value="male" /> Male
+      <input type="radio" name="gender" value="female" /> Female
+      <input type="radio" name="gender" value="other" /> Other
+      <br/>
+      <span class="error" id="genderError"></span>
+    </div>
+
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
+
+<script>
+function validateName() {
+  const name = document.getElementById("fullname").value;
+  if (name.trim() === "") {
+    document.getElementById("nameError").textContent = "Full name is required";
+    return false;
+  } else {
+    document.getElementById("nameError").textContent = "";
+    return true;
+  }
+}
+
+function validateEmail() {
+  const email = document.getElementById("email").value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    document.getElementById("emailError").textContent = "Enter a valid email";
+    return false;
+  } else {
+    document.getElementById("emailError").textContent = "";
+    return true;
+  }
+}
+
+function validatePassword() {
+  const password = document.getElementById("password").value;
+  if (password.length < 6) {
+    document.getElementById("passwordError").textContent = "Minimum 6 characters required";
+    return false;
+  } else {
+    document.getElementById("passwordError").textContent = "";
+    return true;
+  }
+}
+
+function validateConfirmPassword() {
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  if (password !== confirmPassword) {
+    document.getElementById("confirmPasswordError").textContent = "Passwords do not match";
+    return false;
+  } else {
+    document.getElementById("confirmPasswordError").textContent = "";
+    return true;
+  }
+}
+
+function validateDOB() {
+  const dob = document.getElementById("dob").value;
+  if (dob === "") {
+    document.getElementById("dobError").textContent = "Date of birth is required";
+    return false;
+  } else {
+    document.getElementById("dobError").textContent = "";
+    return true;
+  }
+}
+
+function validateGender() {
+  const genderSelected = document.querySelector('input[name="gender"]:checked');
+  if (!genderSelected) {
+    document.getElementById("genderError").textContent = "Select your gender";
+    return false;
+  } else {
+    document.getElementById("genderError").textContent = "";
+    return true;
+  }
+}
+
+// Final validation on submit
+function validateForm() {
+  const v1 = validateName();
+  const v2 = validateEmail();
+  const v3 = validatePassword();
+  const v4 = validateConfirmPassword();
+  const v5 = validateDOB();
+  const v6 = validateGender();
+
+  return v1 && v2 && v3 && v4 && v5 && v6;
+}
+</script>
+
+</body>
+</html>

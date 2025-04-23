@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Railway Time Table</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      border: 1px solid #dfe6e9;
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #2980b9;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9fbfd;
+    }
+
+    tr:hover {
+      background-color: #dff9fb;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Railway Time Table</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Train No</th>
+        <th>Train Name</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Departure</th>
+        <th>Arrival</th>
+        <th>Days</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>12001</td>
+        <td>Shatabdi Express</td>
+        <td>New Delhi</td>
+        <td>Bhopal</td>
+        <td>06:00</td>
+        <td>14:00</td>
+        <td>Mon - Sat</td>
+      </tr>
+      <tr>
+        <td>12951</td>
+        <td>Rajdhani Express</td>
+        <td>Mumbai</td>
+        <td>Delhi</td>
+        <td>16:30</td>
+        <td>08:45</td>
+        <td>Daily</td>
+      </tr>
+      <tr>
+        <td>12627</td>
+        <td>Karnataka Express</td>
+        <td>Bangalore</td>
+        <td>New Delhi</td>
+        <td>19:20</td>
+        <td>06:10</td>
+        <td>Daily</td>
+      </tr>
+      <tr>
+        <td>12426</td>
+        <td>Kerala Express</td>
+        <td>Trivandrum</td>
+        <td>New Delhi</td>
+        <td>11:15</td>
+        <td>13:40</td>
+        <td>Daily</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

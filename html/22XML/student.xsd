@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Root element definition -->
+    <xs:element name="students">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="studentType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Student Type Definition -->
+    <xs:complexType name="studentType">
+        <xs:sequence>
+            <xs:element name="name" type="nameType"/>
+            <xs:element name="age" type="ageType"/>
+            <xs:element name="email" type="emailType"/>
+            <xs:element name="phone" type="phoneType"/>
+            <xs:element name="courses" type="coursesType"/>
+            <xs:element name="address" type="addressType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="studentIdType" use="required"/>
+    </xs:complexType>
+
+    <!-- Name Type Definition -->
+    <xs:complexType name="nameType">
+        <xs:sequence>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Age Type Definition -->
+    <xs:simpleType name="ageType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="16"/>
+            <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Email Type Definition -->
+    <xs:simpleType name="emailType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Phone Type Definition -->
+    <xs:simpleType name="phoneType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{3}-\d{3}-\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Courses Type Definition -->
+    <xs:complexType name="coursesType">
+        <xs:sequence>
+            <xs:element name="course" type="courseType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Course Type Definition -->
+    <xs:complexType name="courseType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="credits">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="6"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="grade" type="gradeType"/>
+        </xs:sequence>
+        <xs:attribute name="code" type="courseCodeType" use="required"/>
+    </xs:complexType>
+
+    <!-- Course Code Type Definition -->
+    <xs:simpleType name="courseCodeType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{2,4}[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Grade Type Definition -->
+    <xs:simpleType name="gradeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A+"/>
+            <xs:enumeration value="A"/>
+            <xs:enumeration value="A-"/>
+            <xs:enumeration value="B+"/>
+            <xs:enumeration value="B"/>
+            <xs:enumeration value="B-"/>
+            <xs:enumeration value="C+"/>
+            <xs:enumeration value="C"/>
+            <xs:enumeration value="C-"/>
+            <xs:enumeration value="D+"/>
+            <xs:enumeration value="D"/>
+            <xs:enumeration value="D-"/>
+            <xs:enumeration value="F"/>
+            <xs:enumeration value="I"/>
+            <xs:enumeration value="W"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Address Type Definition -->
+    <xs:complexType name="addressType">
+        <xs:sequence>
+            <xs:element name="street" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="state" type="stateType"/>
+            <xs:element name="zip" type="zipType"/>
+            <xs:element name="country" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- State Type Definition -->
+    <xs:simpleType name="stateType">
+        <xs:restriction base="xs:string">
+            <xs:length value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Zip Code Type Definition -->
+    <xs:simpleType name="zipType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{5}(-\d{4})?"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Student ID Type Definition -->
+    <xs:simpleType name="studentIdType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="S[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
