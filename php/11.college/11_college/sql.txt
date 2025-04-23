@@ -1,0 +1,15 @@
+CREATE DATABASE admission_db;
+
+USE admission_db;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullname VARCHAR(100),
+    email VARCHAR(100),
+    phone VARCHAR(15),
+    dob DATE,
+    gender VARCHAR(10),
+    course VARCHAR(100),
+    address TEXT,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

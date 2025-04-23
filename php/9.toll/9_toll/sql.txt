@@ -1,0 +1,11 @@
+CREATE DATABASE toll_db;
+
+USE toll_db;
+
+CREATE TABLE toll_records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    vehicle_number VARCHAR(20) NOT NULL,
+    vehicle_type VARCHAR(20) NOT NULL,
+    toll_amount DECIMAL(10,2) NOT NULL,
+    entry_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
